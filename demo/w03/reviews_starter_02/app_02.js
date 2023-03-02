@@ -2,10 +2,10 @@
 const reviews = [
   {
     id: 1,
-    name: 'susan smith',
-    job: 'web developer',
-    img: 'https://res.cloudinary.com/diqqf3eq2/image/upload/v1586883334/person-1_rfzshl.jpg',
-    text: "I'm baby meggings twee health goth +1. Bicycle rights tumeric chartreuse before they sold out chambray pop-up. Shaman humblebrag pickled coloring book salvia hoodie, cold-pressed four dollar toast everyday carry",
+    name: '葉品詮',
+    job: 'Tatto artist',
+    img: 'https://yklkxuvilcamlqqnhytw.supabase.co/storage/v1/object/public/thu211410302/w03/329412155_159145430309232_7041517536741166473_n_.jpg?t=2023-03-02T13%3A04%3A44.799Z',
+    text: "我想當職業刺青師",
   },
   {
     id: 2,
