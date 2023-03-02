@@ -76,3 +76,8 @@ prevBtn.addEventListener('click',() => {
   }
   showReview(currentItem);
 });
+
+randomBtn.addEventListener('click', () => {
+  currentItem = Math.floor(Math.random() * reviews.length);
+  showReview(currentItem);
+});
