@@ -5,8 +5,8 @@ const menu = [
         category: 'breakfast',
         price: 15.59,
         img:'./images/item-1.jpeg',
-        remote_img: ''
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, corporis.'
+        remote_img: '',
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, corporis.',
     },
     {
         id: 2,
@@ -14,8 +14,8 @@ const menu = [
         category: 'dinner',
         price: 15.59,
         img:'./images/item-2.jpeg',
-        remote_img: ''
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, corporis.'
+        remote_img: '',
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, corporis.',
     },
     {
         id: 3,
@@ -23,39 +23,64 @@ const menu = [
         category: 'shakes',
         price: 15.59,
         img:'./images/item-3.jpeg',
-        remote_img: ''
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, corporis.'
+        remote_img: '',
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, corporis.',
     },
     {
         id: 4,
-        title: 'buttermilk pancakes',
+        title: 'muffin blueberry',
         category: 'breakfast',
         price: 15.59,
         img:'./images/my-1.jpg',
-        remote_img: ''
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, corporis.'
+        remote_img: '',
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, corporis.',
     },
     {
         id: 5,
-        title: 'buttermilk pancakes',
-        category: 'breakfast',
+        title: 'Tomato Pasta',
+        category: 'lunch',
         price: 15.59,
-        img:'./images/item-1.jpeg',
-        remote_img: ''
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, corporis.'
+        img:'./images/my-2.jpg',
+        remote_img: '',
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, corporis.',
     },
     {
         id: 6,
-        title: 'buttermilk pancakes',
-        category: 'breakfast',
+        title: 'steak',
+        category: 'dinner',
         price: 15.59,
-        img:'./images/item-1.jpeg',
-        remote_img: ''
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, corporis.'
+        img:'./images/my-3.jpg',
+        remote_img: '',
+        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, corporis.',
     }
 ]
 
 const sectionCenter = document.querySelector('.section-center');
 const btnContainer = document.querySelector('btn-container');
 
+const displayMenuItems = (menu) => {
+    let displayMenu = menu.map( (item) =>{
+        return `
+        <article class="menu-item">
+        <img src=${item.img} alt=${item.title} class="photo" />
+        <div class="item-info">
+          <header>
+            <h4>${item.title}buttermilk pancakes</h4>
+            <h4 class="price">$${item.price}</h4>
+          </header>
+          <p class="item-text">
+           ${item.desc}
+          </p>
+        </div>
+      </article> 
+      `
+    });
+    console.log('displayMenu before join', displayMenu);
+    displayMenu = displayMenu.join('');
+    console.log('displayMenu after join', displayMenu);
+    sectionCenter.innerHTML = displayMenu;
+}
 
+window.addEventListener('DOMContentLoaded',() => {
+    displayMenuItems(menu);
+});
