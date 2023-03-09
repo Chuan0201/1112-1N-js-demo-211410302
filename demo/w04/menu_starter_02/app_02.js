@@ -81,6 +81,20 @@ const displayMenuItems = (menu) => {
     sectionCenter.innerHTML = displayMenu;
 }
 
+
+//const categories = ['all', 'breakfast', 'lunch', 'dinner', 'shake'];
+const categories = ['all', ...new Set(menu.map((item) => item.category))];
+
+const displayMenuButtons = () => {
+    let menuButtons = categories.map((category) => {
+        return `button type="button" class="filter-btn" date-id=${category}>${category}</button>`;
+      })
+    console.log('displayMenuButtons before join', menuButtons);
+    menuButtons = menuButtons.join('');
+    console.log('displayMenuButtons after join\n' ,menuButtons);
+    btnContainer.innerHTML = menuButtons;
+}
+
 window.addEventListener('DOMContentLoaded',() => {
     displayMenuItems(menu);
 });
