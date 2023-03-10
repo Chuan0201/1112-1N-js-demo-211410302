@@ -82,6 +82,7 @@ const displayMenuItems = (menu) => {
 }
 
 
+
 //const categories = ['all', 'breakfast', 'lunch', 'dinner', 'shake'];
 const categories = ['all', ...new Set(menu.map((item) => item.category))];
 
