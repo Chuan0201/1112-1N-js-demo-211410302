@@ -1,62 +1,7 @@
-const menu = [
-    {
-        id: 1,
-        title: 'buttermilk pancakes',
-        category: 'breakfast',
-        price: 15.59,
-        img:'./images/item-1.jpeg',
-        remote_img: '',
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, corporis.',
-    },
-    {
-        id: 2,
-        title: 'dinner double',
-        category: 'dinner',
-        price: 15.59,
-        img:'./images/item-2.jpeg',
-        remote_img: '',
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, corporis.',
-    },
-    {
-        id: 3,
-        title: 'godzilla milkshake',
-        category: 'shakes',
-        price: 15.59,
-        img:'./images/item-3.jpeg',
-        remote_img: '',
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, corporis.',
-    },
-    {
-        id: 4,
-        title: 'muffin blueberry',
-        category: 'breakfast',
-        price: 15.59,
-        img:'./images/my-1.jpg',
-        remote_img: '',
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, corporis.',
-    },
-    {
-        id: 5,
-        title: 'Tomato Pasta',
-        category: 'lunch',
-        price: 15.59,
-        img:'./images/my-2.jpg',
-        remote_img: '',
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, corporis.',
-    },
-    {
-        id: 6,
-        title: 'steak',
-        category: 'dinner',
-        price: 15.59,
-        img:'./images/my-3.jpg',
-        remote_img: '',
-        desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, corporis.',
-    }
-]
+import {menu}  from  './data.js'
 
 const sectionCenter = document.querySelector('.section-center');
-const btnContainer = document.querySelector('btn-container');
+const btnContainer = document.querySelector('.btn-container');
 
 const displayMenuItems = (menu) => {
     let displayMenu = menu.map( (item) =>{
@@ -75,9 +20,9 @@ const displayMenuItems = (menu) => {
       </article> 
       `
     });
-    console.log('displayMenu before join', displayMenu);
+    // console.log('displayMenu before join', displayMenu);
     displayMenu = displayMenu.join('');
-    console.log('displayMenu after join', displayMenu);
+    // console.log('displayMenu after join', displayMenu);
     sectionCenter.innerHTML = displayMenu;
 }
 
@@ -88,14 +33,35 @@ const categories = ['all', ...new Set(menu.map((item) => item.category))];
 
 const displayMenuButtons = () => {
     let menuButtons = categories.map((category) => {
-        return `button type="button" class="filter-btn" date-id=${category}>${category}</button>`;
+        return `<button type="button" class="filter-btn" data-id=${category}>${category}</button>`;
       })
-    console.log('displayMenuButtons before join', menuButtons);
+    // console.log('displayMenuButtons before join', menuButtons);
     menuButtons = menuButtons.join('');
-    console.log('displayMenuButtons after join\n' ,menuButtons);
+    // console.log('displayMenuButtons after join\n' ,menuButtons);
     btnContainer.innerHTML = menuButtons;
+
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    console.log('filterBtns', filterBtns);
+    filterBtns.forEach( (btn) => (
+        btn.addEventListener('click', (e) => {
+            console.log('data-id', e.currentTarget.dataset.id);
+            const category = e.currentTarget.dataset.id;
+            console.log('category', category)
+            const filterMenu = menu.filter( (item) => item.category === category);
+            console.log('filterMenu', filterMenu);
+            if(category === 'all'){
+                console.log('all', menu)
+                displayMenuItems(menu);
+            }else{
+                displayMenuItems(filterMenu);
+            }
+        })
+    ));
 }
+
+
 
 window.addEventListener('DOMContentLoaded',() => {
     displayMenuItems(menu);
+    displayMenuButtons();
 });
