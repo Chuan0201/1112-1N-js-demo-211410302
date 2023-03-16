@@ -8,13 +8,13 @@ console.log('modal', modal);
 console.log('show-modal', btnsOpenModal);
 
 
-const openModal = () => {
+const openModal = (index) => {
     modal.classList.remove('hidden');
     overlay.classList.remove('hidden');
 }
 
 for(let i=0; i<btnsOpenModal.length; i++ ) {
-    btnsOpenModal[i].addEventListener('click', openModal);
+    btnsOpenModal[i].addEventListener('click', openModal(i));
 }
 
 document.addEventListener('keydown', (e) => {
