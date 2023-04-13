@@ -1,6 +1,6 @@
 // let height = Number(prompt('輸入你的身高，以公分計算')) / 100;
 // let weight = Number(prompt('輸入你的體種，以公斤計算'));
-const bmi_data_02 = [];
+// const bmi_data_02 = [];
 
 function bmiCalc_02(height, weight) {
     return weight / (height*height);
@@ -40,9 +40,9 @@ function bmiCalcSuggest_02(height, weight) {
 // bmiCalcSuggest_02(1.75, 85);
 
 const bmi_data_02 = [
-    {height:1.75,weight:55}
-    {height:1.75,weight:70}
-    {height:1.75,weight:85}
+    {height:1.75,weight:55},
+    {height:1.75,weight:70},
+    {height:1.75,weight:85},
 ];
 
 bmi_data_02.forEach((item) => {
@@ -51,28 +51,28 @@ bmi_data_02.forEach((item) => {
 
 let lowerCount =0;
 let normalCount =0;
-let highCount =0;
+let higherCount =0;
 
-const bmi_data_02 = [
-    {height:1.75,weight:55}
-    {height:1.75,weight:70}
-    {height:1.75,weight:85}
-    {height:1.75,weight:50}
-    {height:1.75,weight:75}
-    {height:1.75,weight:90}
-    {height:1.75,weight:65}
-    {height:1.75,weight:73}
-    {height:1.75,weight:72}
+const bmi_data2_02 = [
+    {height:1.75,weight:55},
+    {height:1.75,weight:70},
+    {height:1.75,weight:85},
+    {height:1.75,weight:50},
+    {height:1.75,weight:75},
+    {height:1.75,weight:90},
+    {height:1.75,weight:65},
+    {height:1.75,weight:73},
+    {height:1.75,weight:72},
 ];
 
-bmi_data_02.forEach((item) => {
+bmi_data2_02.forEach((item) => {
     const bmi = bmiCalc_02(item.height, item.weight);
     if( bmi < 18.5) {
-        lowCount++;
+        lowerCount++;
     }else if(bmi <= 24){
-        normalCount==;
+        normalCount++;
     }else {
-        higherCount==;
+        higherCount++;
     }
 });
 
@@ -80,5 +80,5 @@ console.log(`
 bmi summary:
   lower:${lowerCount}
   normal:${normalCount}
-  higherCount:${higherCount}
+  higher:${higherCount}
   `);
