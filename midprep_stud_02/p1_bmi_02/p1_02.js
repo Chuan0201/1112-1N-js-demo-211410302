@@ -35,6 +35,50 @@ function bmiCalcSuggest_02(height, weight) {
         console.log(`For (h/w) = (${height}/${weight}), the BMI = ${bmi} which is ${(weight - normal_high)}).toFixed(2)kg lower than normal.`);
     }
 }
-bmiCalcSuggest_02(1.75, 55);
-bmiCalcSuggest_02(1.75, 70);
-bmiCalcSuggest_02(1.75, 85);
+// bmiCalcSuggest_02(1.75, 55);
+// bmiCalcSuggest_02(1.75, 70);
+// bmiCalcSuggest_02(1.75, 85);
+
+const bmi_data_02 = [
+    {height:1.75,weight:55}
+    {height:1.75,weight:70}
+    {height:1.75,weight:85}
+];
+
+bmi_data_02.forEach((item) => {
+    bmiCalcSuggest_02(item.height, item.weight);
+});
+
+let lowerCount =0;
+let normalCount =0;
+let highCount =0;
+
+const bmi_data_02 = [
+    {height:1.75,weight:55}
+    {height:1.75,weight:70}
+    {height:1.75,weight:85}
+    {height:1.75,weight:50}
+    {height:1.75,weight:75}
+    {height:1.75,weight:90}
+    {height:1.75,weight:65}
+    {height:1.75,weight:73}
+    {height:1.75,weight:72}
+];
+
+bmi_data_02.forEach((item) => {
+    const bmi = bmiCalc_02(item.height, item.weight);
+    if( bmi < 18.5) {
+        lowCount++;
+    }else if(bmi <= 24){
+        normalCount==;
+    }else {
+        higherCount==;
+    }
+});
+
+console.log(`
+bmi summary:
+  lower:${lowerCount}
+  normal:${normalCount}
+  higherCount:${higherCount}
+  `);
